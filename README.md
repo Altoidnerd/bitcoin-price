@@ -2,7 +2,7 @@ Copyright (c) 2015 Altoidnerd
 http://altoidnerd.com
 
 ![plot.png](https://raw.githubusercontent.com/Altoidnerd/bitcoin-price/master/plot.png "plot-example.py in action - matplotlib required")
-
+http://altoidnerd.com/2015/09/11/bitcoin-data-manipulaton-and-plotting-in-python/
 
 # bitcoin-data manipulaton and plotting
 

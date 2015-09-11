@@ -48,9 +48,9 @@ You can get all the price data that coinbase has
     ... getting page 9
     ... etc ...
 
-All the 'get\_\*' functions return a price\_data string, which is interlaced timespams and prices littered with newlines and commas.  You can print them to see what is going on more clearly:
+All the 'get_*' functions return a price_data string, which is interlaced timespams and prices littered with newlines and commas.  You can print them to see what is going on more clearly:
 
-    >>>> print(get_page(1))
+    >>> print(get_page(1))
     2015-09-11T06:44:04-05:00,241.14
     2015-09-11T06:34:04-05:00,240.8
     2015-09-11T06:24:04-05:00,240.75
@@ -60,27 +60,22 @@ All the 'get\_\*' functions return a price\_data string, which is interlaced tim
     2015-09-11T05:44:04-05:00,240.64
     2015-09-11T04:34:04-05:00,241.27
     2015-09-11T04:24:04-05:00,240.73
+    ...
+    
+    
+Turn on the optional show switch for printing large vectors
 
-The parse() function is there to separate these components. 
-
-    >>> x = parse(get_page(1))
-    >>> x[0][0]
-    '241.2'
-    >>> x[0][1]
-    '241.14'
-    >>> x[1][1]
-    '2015-09-11T04:34:04-07:00'
-
-As you can see, parse(price\_data)[0][k] returns the kth price in the list.  Indices [1][k] return the kth timestamp.  
-
-The parse() function takes care of some weird edge cases:
-
-    >>> get_first\_N(3) == get\_page(1)+get\_page(2)+get\_page(3)
-    False
-    >>> parse(get_first_N(3)) == parse(get_page(1)+get_page(2)+get_page(3))
-    True
-
-
+    >>> prices(get_page(11), show=True)
+    ... returning 11000 prices in specified range ...
+    ['239.9',
+    '239.9',
+    '239.4',
+    '239.77',
+    '239.33',
+    '239.99',
+    '239.81',
+    '240.28',
+    '240.4',
 You can use prices(data)[k] and timestamps()[j] to return the kth price in data, or the jth timestamp in data.
 
     >>> data = get_page(1)
@@ -105,7 +100,31 @@ prices() and timestamps() are just functions that return a parsed() object havin
     True
     >>> parse(get_page(2)+get_page(3))[0] == prices(get_range(2,3))
     True
+    
+The parse() function is there to manually control the outputs instead of just getting prices, or timestamps
 
+    >>> x = parse(get_page(1))
+    >>> x[0][0]
+    '241.2'
+    >>> x[0][1]
+    '241.14'
+    >>> x[1][1]
+    '2015-09-11T04:34:04-07:00'
+
+As you can see, parse(price_data)[0][k] returns the kth price in the list.  Indices [1][k] return the kth timestamp.  
+
+The parse() function takes care of some weird edge cases:
+
+    >>> get_first_N(3) == get_page(1)+get_page(2)+get_page(3)
+    False
+    >>> parse(get_first_N(3)) == parse(get_page(1)+get_page(2)+get_page(3))
+    True
+    >>> x = get_page(1)
+    >>> y = get_range(2,7)
+    >>> prices(get_first_N(7)) == prices(x+y)
+    True
+    
+    
 In general,
 
     OPERATOR( get_page(1) + get_page(2) + ... + get_page(k) ) == OPERATOR(get_first_N(k))
@@ -115,7 +134,7 @@ where operator is parsed(), prices(), or timestamps().  We also know
 prices() can obviously display and return ranges of values.  When returning large vectors, you can verify their length by setting show=True.  The "show" parameter is optional for all get\_\* functions and provides some information about the operation being performed.
 
     >>> print( prices(get_first_N(11), show=True) )
- ... returning 11000 prices in specified range...
+    ... returning 11000 prices in specified range...
 
 since each page is a thousand pairs of values (timestamp, price).
 

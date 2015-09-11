@@ -14,5 +14,8 @@ returns timestamps associated with the previous output
 
 returns all the data from page 1.
 
-    >>>  
+You can almost always turn on optional debug statements
+
+    >>> get_first_N(3, show=True)
+    ... fetching first 3
 

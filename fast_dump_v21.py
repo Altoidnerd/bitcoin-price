@@ -12,21 +12,25 @@ def get_page(page_num):
         price_data += "API error"
     return price_data
 
-def get(first_N):
+# an improvement on get first N?
+# right now page 149 happens to be the end
+def get_range(low_index=1, high_index=149, show=False):
     price_data = ''
-    k = 1
-    while k <= first_N:
+    k = low_index
+    if show == True: print("... fetching pages "+str(low_index)+" through "+str(high_index+" ...")
+    while k <= high_index:
         price_data +='\n' + get_page(k)
+        if show == True: print("... getting page " + str(k))
         k+=1
     return price_data
 
-def get_all(show_page=False):
+def get_all(show=False):
     price_data = ''
     page_num = 1
     while True:
         new_page = get_page(page_num)
         price_data += '\n' + new_page
-        if show_page == True: print("... getting page " + str(page_num))
+        if show == True: print("... getting page " + str(page_num))
         page_num += 1
         if new_page == "":
             break

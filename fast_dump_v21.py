@@ -33,7 +33,7 @@ def get_all(show_page=False):
     return price_data
 
 def parse_data(price_data, show=False):
-    frmatted = price_data.replace(',','\n').split('\n')
+    formatted = price_data.replace(',','\n').split('\n')
     prices = formatted[::2]
     timestamps = formatted[1::2]
     vectors = [timestamps, prices]

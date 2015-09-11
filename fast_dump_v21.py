@@ -15,10 +15,10 @@ def get_page(page_num):
 def get_first_N(first_N, show=False):
     price_data = ''
     k = 1 
-    if show == True: print(" ... fetching first "+str(first_N))
+    if show: print(" ... fetching first "+str(first_N))
     while k <= first_N:                                                                               
         price_data +='\n' + get_page(k)
-        if show == True: print(" ... getting page " + str(k))
+        if show: print(" ... getting page " + str(k))
         k+=1
     return price_data
 
@@ -27,7 +27,7 @@ def get_first_N(first_N, show=False):
 def get_range(low_index=1, high_index=149, show=False):
     price_data = ''
     k = low_index
-    if show == True: print("... fetching pages "+str(low_index)+" through "+str(high_index+" ...")
+    if show: print("... fetching pages "+str(low_index)+" through "+str(high_index+" ..."))
     while k <= high_index:
         price_data +='\n' + get_page(k)
         if show == True: print("... getting page " + str(k))
@@ -40,7 +40,7 @@ def get_all(show=False):
     while True:
         new_page = get_page(page_num)
         price_data += '\n' + new_page
-        if show == True: print("... getting page " + str(page_num))
+        if show: print("... getting page " + str(page_num))
         page_num += 1
         if new_page == "":
             break
@@ -51,7 +51,7 @@ def parse_data(price_data, show=False):
     prices = formatted[::2]
     timestamps = formatted[1::2]
     vectors = [timestamps, prices]
-    if show == True:
+    if show:
         print(vectors)
     return vectors 
 

@@ -20,7 +20,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
-# bitcoin-data
+# bitcoin-data manipulaton and plotting
 
 Get bitcoin price data from the coinbase API and parse it into an easily manipulated form.
 

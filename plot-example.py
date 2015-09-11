@@ -3,7 +3,7 @@
 from price_dump import *
 import matplotlib.pyplot as plt
 
-data = get_first_N(148)
+data = get_first_N(15) # keep this number small to start.  Currently there are about 148 pages available.
 
 price = prices(data)
 bins = range(0, len(price))

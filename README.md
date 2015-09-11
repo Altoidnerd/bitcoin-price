@@ -48,7 +48,7 @@ You can get all the price data that coinbase has
     ... getting page 9
     ... etc ...
 
-All the 'get\_\*' functions return a price_data string, which is interlaced timespams and prices littered with newlines and commas.  You can print them to see what is going on more clearly:
+All the 'get\_\*' functions return a price\_data string, which is interlaced timespams and prices littered with newlines and commas.  You can print them to see what is going on more clearly:
 
     >>>> print(get_page(1))
     2015-09-11T06:44:04-05:00,241.14
@@ -71,17 +71,17 @@ The parse() function is there to separate these components.
     >>> x[1][1]
     '2015-09-11T04:34:04-07:00'
 
-As you can see, pase(price_data_[0][k] returns the kth price in the list.  Indices [1][k] return the kth timestamp.  
+As you can see, parse(price\_data)[0][k] returns the kth price in the list.  Indices [1][k] return the kth timestamp.  
 
 The parse() function takes care of some weird edge cases:
 
-    >>> get_first_N(3) == get_page(1)+get_page(2)+get_page(3)
+    >>> get_first\_N(3) == get\_page(1)+get\_page(2)+get\_page(3)
     False
     >>> parse(get_first_N(3)) == parse(get_page(1)+get_page(2)+get_page(3))
     True
 
 
-If you don't like indices, you can use prices(data)[k] and timestamps()[j] to return the kth price in data, or the jth timestamp in data.
+You can use prices(data)[k] and timestamps()[j] to return the kth price in data, or the jth timestamp in data.
 
     >>> data = get_page(1)
     >>> prices(data)[4]
@@ -99,11 +99,18 @@ This shows the expressiveness of this module. In general:
     >>> prices(get_page(2)) == parse(get_page(2))[0]
     True
 
-prices() and timestamps() are just functions that return a parsed() object having a specific index, or indices. In general,
+prices() and timestamps() are just functions that return a parsed() object having a specific index, or indices. 
+
+    >>> parse(get_page(1)+get_page(2)+get_page(3))[0] == prices(get_first_N(3))  
+    True
+    >>> parse(get_page(2)+get_page(3))[0] == prices(get_range(2,3))
+    True
+
+In general,
 
     OPERATOR( get_page(1) + get_page(2) + ... + get_page(k) ) == OPERATOR(get_first_N(k))
 
-where operator is parsed(), prices(), or timestamps().
+where operator is parsed(), prices(), or timestamps().  We also know
 
 prices() can obviously display and return ranges of values.  When returning large vectors, you can verify their length by setting show=True.  The "show" parameter is optional for all get\_\* functions and provides some information about the operation being performed.
 
@@ -126,9 +133,6 @@ since each page is a thousand pairs of values (timestamp, price).
      '229.43',
      '229.41',
     ...
-
-
-        
 
 
 * fast_dump_v1* are older versions that are somewhat different.  They are designed to store the fetched data in the .data directory.  This in v2*, this was abandoned in favor of stdout redirection.

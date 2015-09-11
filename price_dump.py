@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 
+#
+# the current version is fast_dump_v22.py
+# this just has a better name
+#
+
 import requests
 import sys
 import time

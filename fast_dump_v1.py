@@ -12,8 +12,8 @@ while True:
         price_data += '\n' + req.text
     else:
         price_data += "API error"
-    page_num += 1
     print("... getting page "+str(page_num))
+    page_num += 1
     if req.text == "":
         break
 

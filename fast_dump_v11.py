@@ -1,8 +1,7 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 import requests
-import time
-
+import sys
 
 def get_all():
     page_num = 1
@@ -13,14 +12,14 @@ def get_all():
             price_data += '\n' + req.text
         else:
             price_data += "API error"
-        page_num += 1
         print("... getting page "+str(page_num))
+        page_num += 1
         if req.text == "":
             break
     return price_data
 
 if __name__ == '__main__':
-    get_all()
+    sys.stdout.write(get_all())
 
 #with open('.tmp/{}_full_output.py'.format(int(time.time())), 'a') as f1:
  #   f1.write('\n'+ price_data)

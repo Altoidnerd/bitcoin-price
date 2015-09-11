@@ -2,6 +2,7 @@
 
 import requests
 import sys
+import time
 
 def get_page(page_num):
     price_data = ''
@@ -54,6 +55,28 @@ def parse_data(price_data, show=False):
     if show:
         print(vectors)
     return vectors 
+
+def prices(price_data, index=None, show=False):
+    if index is None:
+        if show: 
+            print(" ... returning all prices for specified range ...")
+            time.sleep(2)
+        return parse_data(price_data)[0]
+    else:
+        if show:
+            print(" ... returning the price of index "+str(index))
+        return parse_data(price_data)[0][int(index)]
+
+def timestamps(price_data, index=None, show=False):
+    if index is None:
+        if show:
+            print(" ... returning all timestamps in specified range ...")
+            time.sleep(2)
+        return parse_data(price_data)[1]
+    else:
+        if show:
+            print(" ... returning the timestamp with index "+str(index))
+        return parse_data(price_data)[1][int(index)]
 
 if __name__ == '__main__':
     sys.stdout.write(get_all(show=True))        

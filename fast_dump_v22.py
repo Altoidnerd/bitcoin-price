@@ -43,7 +43,7 @@ def get_all(show=False):
         price_data +=  new_page
         if show: print("... getting page " + str(page_num))
         page_num += 1
-        if new_page == "":
+        if new_page == "\n":
             break
     return price_data
 

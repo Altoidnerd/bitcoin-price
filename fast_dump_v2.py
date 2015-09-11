@@ -12,7 +12,7 @@ def get_page(page_num):
         page += "API error"
     return page
 
-def get(first_N):
+def get_first_N(first_N):
     price_data = ''
     k = 1
     while k <= first_N:

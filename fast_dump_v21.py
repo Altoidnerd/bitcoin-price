@@ -12,7 +12,17 @@ def get_page(page_num):
         price_data += "API error"
     return price_data
 
-# an improvement on get first N?
+def get_first_N(first_N, show=False):
+    price_data = ''
+    k = 1 
+    if show == True: print(" ... fetching first "+str(first_N))
+    while k <= first_N:                                                                               
+        price_data +='\n' + get_page(k)
+        if show == True: print(" ... getting page " + str(k))
+        k+=1
+    return price_data
+
+# slightly better than get_first_N()?
 # right now page 149 happens to be the end
 def get_range(low_index=1, high_index=149, show=False):
     price_data = ''
@@ -45,7 +55,6 @@ def parse_data(price_data, show=False):
         print(vectors)
     return vectors 
 
-        
 if __name__ == '__main__':
-    sys.stdout.write(get_all(show_page=True))        
+    sys.stdout.write(get_all(show=True))        
   

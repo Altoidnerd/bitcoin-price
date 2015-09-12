@@ -15,7 +15,8 @@ Create a quick plot of bitcoin's price history:
 
     plt.plot(bins, price[::-1])
     plt.show()
-
+    
+![plot.png](http://i.imgur.com/EsOkkkt.png "Actually this image is a log plot, but it's only a slight modification - see log-plot-expample.py")
 
 # bitcoin-data manipulaton and plotting
 

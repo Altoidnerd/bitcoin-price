@@ -34,7 +34,7 @@ def timestamps_test_3():
         result = "FAIL"
     else:
         result = "PASS"
-    print("timestampt test 3: ", result)
+    print("timestamp test 3: ", result)
 
 def prices_test_1():
     data = get_first_N(2)

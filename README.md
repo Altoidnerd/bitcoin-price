@@ -1,10 +1,12 @@
+# bitcoin-data manipulaton and plotting
+
 Copyright (c) 2015 Altoidnerd
 http://altoidnerd.com
 
 ![plot.png](https://raw.githubusercontent.com/Altoidnerd/bitcoin-price/master/plot.png "plot-example.py in action - matplotlib required")
 http://altoidnerd.com/2015/09/11/bitcoin-data-manipulaton-and-plotting-in-python/
 
-Create a quick plot of bitcoin's price history:
+## Create a quick plot of bitcoin's price history:
     
     from price_dump import *
     import matplotlib.pyplot as plt
@@ -21,7 +23,24 @@ Create a quick plot of bitcoin's price history:
 ... actually this image is a log plot, but it's only a slight modification - see log-plot-expample.py.
 
 
-# bitcoin-data manipulaton and plotting
+## Clone the repo, and run the tests. 
+
+    git clone https://github.com/altoidnerd/bitcoin-price.git
+    cd bitcoin-price
+    python3 ./tests/test.py
+    
+Hopefully you will see something like this
+
+    timestamp test 1:  PASS
+    timestamp test 2:  PASS
+    timestamp test 3:  PASS
+    prices test 1:  PASS
+    prices test 2:  PASS
+    parse test 1:  PASS
+
+Please help out by improving and writing more tests.
+
+## Learn by doing ... 
 
 Get bitcoin price data from the coinbase API and parse it into an easily manipulated form.
 

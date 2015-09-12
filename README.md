@@ -4,6 +4,19 @@ http://altoidnerd.com
 ![plot.png](https://raw.githubusercontent.com/Altoidnerd/bitcoin-price/master/plot.png "plot-example.py in action - matplotlib required")
 http://altoidnerd.com/2015/09/11/bitcoin-data-manipulaton-and-plotting-in-python/
 
+Create a quick plot of bitcoin's price history:
+    
+    from price_dump import *
+    import matplotlib.pyplot as plt
+
+    data = get_first_N(147) # keep this number small to start.  Currently there are about 148 pages available.
+    price = prices(data)
+    bins = range(0, len(price))
+
+    plt.plot(bins, price[::-1])
+    plt.show()
+
+
 # bitcoin-data manipulaton and plotting
 
 Get bitcoin price data from the coinbase API and parse it into an easily manipulated form.

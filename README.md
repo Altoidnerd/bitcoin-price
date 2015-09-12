@@ -33,7 +33,7 @@ Hopefully you will see something like this
 
     timestamp test 1:  PASS
     timestamp test 2:  PASS
-    timestampt test 3:  PASS
+    timestamp test 3:  PASS
     prices test 1:  PASS
     prices test 2:  PASS
     parse test 1:  PASS

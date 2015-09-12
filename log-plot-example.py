@@ -12,7 +12,7 @@ price = prices(data)
 # those list entries to floats in order to take the log
  
 float_price = map(float, price)
-logs        = list(map(math.log10(float_price)))
+logs        = list(map(math.log10,float_price))
 bins        = range(0, len(price))
  
 plt.plot(bins, logs[::-1])

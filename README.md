@@ -9,7 +9,7 @@ Create a quick plot of bitcoin's price history:
     from price_dump import *
     import matplotlib.pyplot as plt
 
-    data = get_first_N(147) # keep this number small to start.  Currently there are about 148 pages available.
+    data = get_first_N(147) #Currently there are about 148 pages available.
     price = prices(data)
     bins = range(0, len(price))
 

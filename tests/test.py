@@ -57,10 +57,24 @@ def prices_test_2():
         result = "PASS"
     print("prices test 2: ", result)
 
- # TODO - bedtime now
-   # def test_parse(self):
-    #    self.assertEqual(parse(get_page(1)+get_page(2))[0], parse(get_first_N(2))[0])
-     #   self.assertEqual(parse(get_page(1)+get_page(2)+get_page(3))[0], prices(get_first_N(3)))
+def parse_test_1():
+    data1 = get_page(1)+ get_page(2)
+    data2 = get_first_N(2)
+    if data1 == data2:
+        a = parse(get_page(1)+get_page(2))[0]
+        b = parse(get_first_N(2))[0]
+        if not(a == b):
+            result = "FAIL"
+        else:
+            result = "PASS"
+        print("parse test 1: ", result)
+        return 0
+    else:
+        print("Error fetching data.  Trying again")
+        parse_test_1()
+
+
+#   self.assertEqual(parse(get_page(1)+get_page(2)+get_page(3))[0], prices(get_first_N(3)))
       #  self.assertEqual(parse(get_page(2)+get_page(3)[0], prices(get_range(2,3))))
        # self.assertEqual(parse(get_first_N(6))[0] == prices(get_range(1,6)))
 
@@ -71,7 +85,7 @@ def main():
     timestamps_test_3()
     prices_test_1()
     prices_test_2()
-
+    parse_test_1()
 if __name__ == '__main__':                                                                  
     main() 
 

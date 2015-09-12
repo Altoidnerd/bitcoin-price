@@ -7,8 +7,9 @@ t_index1k = random.randint(1, 999)
 t_index2k = random.randint(1, 1999)
 
 def timestamps_test_1():
-    a = timestamps(get_page(1)+get_page(2))[t_index2k]
-    b = timestamps(get_range(1,2), index=t_index2k)
+    data = get_page(1)+get_page(2)
+    a = timestamps(data)[t_index2k]
+    b = timestamps(data, index=t_index2k)
     if not(a == b): 
         result = "FAIL"
     else:

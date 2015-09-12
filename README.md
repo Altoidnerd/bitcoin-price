@@ -30,7 +30,9 @@ http://altoidnerd.com/2015/09/11/bitcoin-data-manipulaton-and-plotting-in-python
     python3 ./tests/test.py
     
 Hopefully you will see something like this
-
+    
+    t_index2k:  311
+    t_index1k:  44
     timestamp test 1:  PASS
     timestamp test 2:  PASS
     timestamp test 3:  PASS

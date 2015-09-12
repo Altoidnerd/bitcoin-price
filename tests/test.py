@@ -79,7 +79,9 @@ def parse_test_1():
        # self.assertEqual(parse(get_first_N(6))[0] == prices(get_range(1,6)))
 
 
-def main():                
+def main():
+    print("t_index2k: ", t_index2k)
+    print("t_index1k: ", t_index1k)                
     timestamps_test_1()     
     timestamps_test_2()     
     timestamps_test_3()

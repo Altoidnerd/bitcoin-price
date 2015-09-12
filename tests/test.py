@@ -9,7 +9,6 @@ t_index2k = random.randint(1, 1999)
 def timestamps_test_1():
     a = timestamps(get_page(1)+get_page(2))[t_index2k]
     b = timestamps(get_range(1,2), index=t_index2k)
-    
     if not(a == b): 
         result = "FAIL"
     else:
@@ -20,7 +19,6 @@ def timestamps_test_2():
     data = get_page(1)
     a = timestamps(data)[t_index1k]
     b = timestamps(data, index=t_index1k)
-    
     if not(a == b):
         result = "FAIL"
     else:
@@ -58,7 +56,7 @@ def prices_test_2():
         result = "PASS"
     print("prices test 2: ", result)
 
-
+ # TODO - bedtime now
    # def test_parse(self):
     #    self.assertEqual(parse(get_page(1)+get_page(2))[0], parse(get_first_N(2))[0])
      #   self.assertEqual(parse(get_page(1)+get_page(2)+get_page(3))[0], prices(get_first_N(3)))

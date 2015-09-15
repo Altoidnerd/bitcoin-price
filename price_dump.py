@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 
-#
-# the current version is fast_dump_v22.py
-# this just has a better name
-#
-
 import requests
 import sys
 import time
@@ -54,9 +49,10 @@ def get_all(show=False):
 
 def parse(price_data, show=False):
     formatted = price_data.replace(',','\n').split('\n')
-    prices = formatted[::2]
-    timestamps = formatted[1::2]
-    vectors = [timestamps, prices]
+    timestamps = formatted[::2]
+    del timestamps[-1]
+    prices = formatted[1::2]
+    vectors = [prices, timestamps]
     if show:
         print(vectors)
     return vectors 

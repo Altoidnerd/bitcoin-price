@@ -5,6 +5,7 @@ import random
 
 t_index1k = random.randint(1, 999)
 t_index2k = random.randint(1, 1999)
+randpage = random.randint(1,149)
 
 def timestamps_test_1():
     data = get_page(1)+get_page(2)
@@ -17,7 +18,7 @@ def timestamps_test_1():
     print("timestamp test 1: ", result)
 
 def timestamps_test_2():
-    data = get_page(1)
+    data = get_page(randpage)
     a = timestamps(data)[t_index1k]
     b = timestamps(data, index=t_index1k)
     if not(a == b):
@@ -47,7 +48,6 @@ def prices_test_1():
     print("prices test 1: ", result)
     
 def prices_test_2():
-    randpage = random.randint(1,145)
     data = get_page(randpage)
     a = prices(data)
     b =  parse(data)[0]
@@ -82,6 +82,7 @@ def parse_test_1():
 def main():
     print("t_index2k: ", t_index2k)
     print("t_index1k: ", t_index1k)                
+    print("randpage: ", randpage)
     timestamps_test_1()     
     timestamps_test_2()     
     timestamps_test_3()

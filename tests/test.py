@@ -73,6 +73,15 @@ def parse_test_1():
         print("Error fetching data.  Trying again")
         parse_test_1()
 
+def length_test():
+    data = get_page(randpage)
+    a = len(timestamps(data))
+    b = len(prices(data))
+    if not(a == b):
+        result = "FAIL"
+    else:             
+        result = "PASS"
+    print("length test: ", result)
 
 #   self.assertEqual(parse(get_page(1)+get_page(2)+get_page(3))[0], prices(get_first_N(3)))
       #  self.assertEqual(parse(get_page(2)+get_page(3)[0], prices(get_range(2,3))))
@@ -88,6 +97,7 @@ def main():
     timestamps_test_3()
     prices_test_1()
     prices_test_2()
+    length_test()
     parse_test_1()
 if __name__ == '__main__':                                                                  
     main() 

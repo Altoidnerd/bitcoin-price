@@ -98,7 +98,7 @@ Turn on the optional show switch for printing large vectors
     '239.81',
     '240.28',
     '240.4',
-You can use prices(data)[k] and timestamps()[j] to return the kth price in data, or the jth timestamp in data.
+You can use prices(data)[k] and timestamps(data)[j] to return the kth price in data, or the jth timestamp in data.
 
     >>> data = get_page(1)
     >>> prices(data)[4]

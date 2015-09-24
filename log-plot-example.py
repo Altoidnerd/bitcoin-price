@@ -4,7 +4,7 @@ from price_dump import *
 import matplotlib.pyplot as plt
 import math
  
-data  = get_first_N(147) 
+data  = get_first_N(147, show=True) 
 price = prices(data) 
  
 # prices(data) is a list of numeric strings like

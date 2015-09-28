@@ -80,5 +80,5 @@ def timestamps(price_data, index=None, show=False):
         return parse(price_data)[1][int(index)]
 
 if __name__ == '__main__':
-    sys.stdout.write(get_all(show=True))        
+    sys.stdout.write(get_first_N(15,show=True))        
   
